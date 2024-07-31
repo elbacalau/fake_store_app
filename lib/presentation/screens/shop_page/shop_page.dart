@@ -2,7 +2,6 @@ import 'package:fake_store_app/presentation/providers/product_list_provider.dart
 import 'package:fake_store_app/presentation/screens/shop_page/filter_product_widget/drop_filter_menu.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 class ShopPage extends StatefulWidget {
@@ -13,6 +12,8 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+  // fuera del arbol de widget para poder actualizar el estado
+  int selectedCrossASize = 2;
   @override
   void initState() {
     super.initState();
@@ -21,8 +22,6 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
-    int selectedCrossASize = 2;
-
     return Padding(
       padding: const EdgeInsets.all(14.0),
       child: Column(
@@ -47,24 +46,25 @@ class _ShopPageState extends State<ShopPage> {
                   children: [
                     const DropFilterMenu(),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: DropdownMenu(
-                        onSelected: (value) {
-                          selectedCrossASize = value!;
-                        },
-                        label: const Icon(Iconsax.grid_1),
-                        dropdownMenuEntries: const [
-                          DropdownMenuEntry(
-                            value: 2,
-                            label: '2',
-                          ),
-                          DropdownMenuEntry(
-                            value: 4,
-                            label: '4',
-                          ),
-                        ],
-                      ),
-                    )
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: DropdownButton<int>(
+                          value: selectedCrossASize,
+                          onChanged: (int? value) {
+                            setState(() {
+                              selectedCrossASize = value!;
+                            });
+                          },
+                          items: const [
+                            DropdownMenuItem(
+                              value: 2,
+                              child: Text('2'),
+                            ),
+                            DropdownMenuItem(
+                              value: 4,
+                              child: Text('4'),
+                            )
+                          ],
+                        )),
                   ],
                 ),
               ],
