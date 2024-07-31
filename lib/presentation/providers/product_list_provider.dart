@@ -13,7 +13,7 @@ class ProductListProvider with ChangeNotifier {
       _products = await _getListProducts.getListProducts();
       notifyListeners();
     } catch (e) {
-      print('Error $e');
+      rethrow;
     }
   }
 }
