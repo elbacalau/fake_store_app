@@ -1,10 +1,23 @@
+import 'package:fake_store_app/presentation/providers/product_list_provider.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/filter_product_widget/drop_filter_menu.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
-class ShopPage extends StatelessWidget {
+class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
+
+  @override
+  State<ShopPage> createState() => _ShopPageState();
+}
+
+class _ShopPageState extends State<ShopPage> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<ProductListProvider>(context, listen: false).fetchProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
