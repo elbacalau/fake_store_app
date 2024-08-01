@@ -1,7 +1,9 @@
 import 'package:fake_store_app/presentation/providers/product_list_provider.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/filter_product_widget/drop_filter_menu.dart';
-import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card.dart';
+import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card_2_col.dart';
+import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card_3_col.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 class ShopPage extends StatefulWidget {
@@ -46,25 +48,64 @@ class _ShopPageState extends State<ShopPage> {
                   children: [
                     const DropFilterMenu(),
                     Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: DropdownButton<int>(
-                          value: selectedCrossASize,
-                          onChanged: (int? value) {
-                            setState(() {
-                              selectedCrossASize = value!;
-                            });
-                          },
-                          items: const [
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 2.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(color: Colors.grey),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
                             ),
-                            DropdownMenuItem(
-                              value: 4,
-                              child: Text('4'),
-                            )
                           ],
-                        )),
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<int>(
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            value: selectedCrossASize,
+                            onChanged: (int? value) {
+                              setState(
+                                () {
+                                  selectedCrossASize = value!;
+                                },
+                              );
+                            },
+                            items: const [
+                              DropdownMenuItem(
+                                value: 2,
+                                child: Row(
+                                  children: [
+                                    Icon(Iconsax.grid_2, color: Colors.black),
+                                    SizedBox(width: 8.0),
+                                    Text('2 Columnas'),
+                                  ],
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 3,
+                                child: Row(
+                                  children: [
+                                    Icon(Iconsax.grid_1, color: Colors.black),
+                                    SizedBox(width: 8.0),
+                                    Text('3 Columnas'),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -76,10 +117,14 @@ class _ShopPageState extends State<ShopPage> {
             height: 35.0,
           ),
           Expanded(
-            child: ProductsCard(
-              crossSize: selectedCrossASize,
-            ),
-          )
+              child: selectedCrossASize == 2
+                  ? const ProductsCard2Col(crossSize: 2)
+                  : const ProductCard3Col(crossSize: 3)
+
+              // child: ProductsCard(
+              //   crossSize: selectedCrossASize,
+              // ),
+              ),
         ],
       ),
     );
