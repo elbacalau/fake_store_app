@@ -8,9 +8,9 @@ class ProductListProvider with ChangeNotifier {
 
   List<Product> get products => _products;
 
-  Future<void> fetchProducts() async {
+  Future<void> fetchProducts(int limit) async {
     try {
-      _products = await _getListProducts.getListProducts();
+      _products = await _getListProducts.getListProducts(limit);
       notifyListeners();
     } catch (e) {
       rethrow;

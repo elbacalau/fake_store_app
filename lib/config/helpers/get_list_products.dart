@@ -6,8 +6,8 @@ class GetListProducts {
   final _dio = Dio();
   final baseUrl = 'https://fakestoreapi.com/products';
 
-  Future<List<Product>> getListProducts() async {
-    final response = await _dio.get(baseUrl);
+  Future<List<Product>> getListProducts(int limit) async {
+    final response = await _dio.get("$baseUrl?limit=$limit");
 
     List<dynamic> data = response.data;
 
