@@ -41,7 +41,7 @@ class ProductCard3Col extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.25),
                   offset: const Offset(2, 4),
                   blurRadius: 8,
-                )
+                ),
               ],
             ),
             child: CardProduct(product: product),
@@ -68,7 +68,7 @@ class CardProduct extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 5.0),
+            margin: const EdgeInsets.symmetric(vertical: 5.0),
             alignment: Alignment.topCenter,
             child: Image.network(
               '${product.imageUrl}',
@@ -83,7 +83,7 @@ class CardProduct extends StatelessWidget {
             child: Text(
               product.title,
               style: const TextStyle(
-                fontSize: 13.0,
+                fontSize: 14.0,
                 color: Colors.black,
               ),
               maxLines: 1,
@@ -95,7 +95,7 @@ class CardProduct extends StatelessWidget {
             child: Text(
               '${product.price} €',
               style:
-                  const TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700),
+                  const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w700),
             ),
           ),
         ],

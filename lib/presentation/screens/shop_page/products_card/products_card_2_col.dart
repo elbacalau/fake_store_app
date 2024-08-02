@@ -25,29 +25,32 @@ class ProductsCard2Col extends StatelessWidget {
       );
     }
 
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossSize,
-      ),
-      itemCount: products.length,
-      itemBuilder: (BuildContext context, int index) {
-        final product = products[index];
-        return Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.25),
-                  offset: const Offset(2, 4),
-                  blurRadius: 8,
-                )
-              ],
+    return GestureDetector(
+      onTap: () {},
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crossSize,
+        ),
+        itemCount: products.length,
+        itemBuilder: (BuildContext context, int index) {
+          final product = products[index];
+          return Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.25),
+                    offset: const Offset(2, 4),
+                    blurRadius: 8,
+                  )
+                ],
+              ),
+              child: CardProduct(product: product),
             ),
-            child: CardProduct(product: product),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -68,6 +71,7 @@ class CardProduct extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            margin: const EdgeInsets.symmetric(vertical: 8.0),
             alignment: Alignment.topCenter,
             child: Image.network(
               '${product.imageUrl}',
@@ -90,7 +94,7 @@ class CardProduct extends StatelessWidget {
           ),
           Container(
             margin:
-                const EdgeInsets.symmetric(horizontal: 14.0, vertical: 20.0),
+                const EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
             child: Text(
               '${product.price} €',
               style:
