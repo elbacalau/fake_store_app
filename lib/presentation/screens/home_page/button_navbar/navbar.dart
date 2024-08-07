@@ -1,6 +1,7 @@
 import 'package:fake_store_app/presentation/screens/favorite_page/favorite_page.dart';
 import 'package:fake_store_app/presentation/screens/home_page/home_page.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/shop_page.dart';
+import 'package:fake_store_app/presentation/screens/shopping_cart/shopping_cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -35,10 +36,22 @@ class Navbar extends StatelessWidget {
           height: 80.0,
           backgroundColor: Colors.white,
           destinations: const [
-            NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Iconsax.shop), label: 'Tienda'),
-            NavigationDestination(icon: Icon(Iconsax.user), label: 'Perfil'),
-            NavigationDestination(icon: Icon(Iconsax.heart), label: 'Favoritos')
+            NavigationDestination(
+              icon: Icon(Iconsax.home),
+              label: 'Home',
+            ),
+            NavigationDestination(
+              icon: Icon(Iconsax.shop),
+              label: 'Tienda',
+            ),
+            NavigationDestination(
+              icon: Icon(Iconsax.shopping_cart),
+              label: 'Carrito',
+            ),
+            NavigationDestination(
+              icon: Icon(Iconsax.heart),
+              label: 'Favoritos',
+            )
           ],
         ),
       ),
@@ -52,9 +65,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomePageScreen(),
     const ShopPage(),
-    Container(
-      color: Colors.red,
-    ),
+    const ShoppingCartPage(),
     const FavoritePage(),
   ];
 }
