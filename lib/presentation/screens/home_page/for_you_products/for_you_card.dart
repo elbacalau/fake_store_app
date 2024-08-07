@@ -70,8 +70,9 @@ class _ForYouCardState extends State<ForYouCard> {
                     });
                   },
                   icon: const Icon(
-                    Icons.favorite_border_outlined,
+                    Icons.favorite,
                     size: 28.0,
+                    color: Colors.red,
                   ),
                 ),
                 IconButton(
@@ -79,8 +80,9 @@ class _ForYouCardState extends State<ForYouCard> {
                     showInfoDialogCard(context, product);
                   },
                   icon: const Icon(
-                    Icons.info_outline,
+                    Icons.info,
                     size: 28.0,
+                    color: Colors.blue,
                   ),
                 )
               ],
