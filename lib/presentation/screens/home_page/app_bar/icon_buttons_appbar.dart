@@ -30,9 +30,7 @@ class _IconButtonsAppbarState extends State<IconButtonsAppbar> {
             FluentIcons.settings_28_regular,
             color: Colors.white,
           ),
-          onPressed: () {
-            // Acción para el segundo botón
-          },
+          onPressed: () {},
         ),
       ],
     );

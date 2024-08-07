@@ -1,4 +1,5 @@
 import 'package:fake_store_app/domain/entities/product.dart';
+import 'package:fake_store_app/presentation/providers/favorites_products/favorite_product_list_provider.dart';
 import 'package:fake_store_app/presentation/providers/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -54,13 +55,19 @@ class _ForYouCardState extends State<ForYouCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  product.price.toString(),
+                  '${product.price}€',
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 22.0),
                 ),
                 IconButton(
                   onPressed: () {
-                    // TODO: pulsar el boton y agregar a favoritos
+                    setState(() {
+                      // !boton para agregar productos
+
+                      Provider.of<FavoriteProductListProvider>(context,
+                              listen: false)
+                          .addToFavorites(product);
+                    });
                   },
                   icon: const Icon(
                     Icons.favorite_border_outlined,

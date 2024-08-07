@@ -36,11 +36,11 @@ class _ShopPageState extends State<ShopPage> {
     );
   }
 
-  void setLimit(int? value) {
+  void setLimit(int? value) async {
     setState(() {
       defaultLimit = value!;
     });
-    Provider.of<ProductListProvider>(context, listen: false)
+    await Provider.of<ProductListProvider>(context, listen: false)
         .fetchProducts(defaultLimit);
   }
 

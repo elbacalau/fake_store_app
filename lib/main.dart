@@ -1,7 +1,8 @@
 import 'package:fake_store_app/config/theme/app_theme.dart';
+import 'package:fake_store_app/presentation/providers/favorites_products/favorite_product_list_provider.dart';
 import 'package:fake_store_app/presentation/providers/product_list_provider.dart';
-import 'package:fake_store_app/presentation/screens/home_page_screen/app_bar/search_form_appbar.dart';
-import 'package:fake_store_app/presentation/screens/home_page_screen/button_navbar/navbar.dart';
+import 'package:fake_store_app/presentation/screens/home_page/app_bar/search_form_appbar.dart';
+import 'package:fake_store_app/presentation/screens/home_page/button_navbar/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => ProductListProvider()),
+        ChangeNotifierProvider(create: (_) => FavoriteProductListProvider()),
       ],
       child: MaterialApp(
         theme: AppTheme.theme,

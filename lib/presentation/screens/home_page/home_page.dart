@@ -1,6 +1,6 @@
-import 'package:fake_store_app/presentation/screens/home_page_screen/carousel_slider/carousel_slider_home.dart';
-import 'package:fake_store_app/presentation/screens/home_page_screen/categories/categories_home.dart';
-import 'package:fake_store_app/presentation/screens/home_page_screen/for_you_products/for_you_card.dart';
+import 'package:fake_store_app/presentation/screens/home_page/carousel_slider/carousel_slider_home.dart';
+import 'package:fake_store_app/presentation/screens/home_page/categories/categories_home.dart';
+import 'package:fake_store_app/presentation/screens/home_page/for_you_products/for_you_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

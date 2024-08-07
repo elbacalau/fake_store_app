@@ -1,4 +1,5 @@
-import 'package:fake_store_app/presentation/screens/home_page_screen/home_page.dart';
+import 'package:fake_store_app/presentation/screens/favorite_page/favorite_page.dart';
+import 'package:fake_store_app/presentation/screens/home_page/home_page.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/shop_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,10 +53,8 @@ class NavigationController extends GetxController {
     const HomePageScreen(),
     const ShopPage(),
     Container(
-      color: Colors.pink,
-    ),
-    Container(
       color: Colors.red,
     ),
+    const FavoritePage(),
   ];
 }
