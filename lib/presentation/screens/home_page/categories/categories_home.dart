@@ -1,3 +1,4 @@
+import 'package:fake_store_app/presentation/screens/products_category_page/products_category.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesHome extends StatelessWidget {
@@ -9,18 +10,22 @@ class CategoriesHome extends StatelessWidget {
       {
         'name': 'Electronic',
         'image': 'assets/images/categories/electronic.png',
+        'category': 'electronics'
       },
       {
         'name': 'Jewelery',
         'image': 'assets/images/categories/jewlery.png',
+        'category': 'jewelery'
       },
       {
         'name': 'Men Clothing',
         'image': 'assets/images/categories/menclothe.png',
+        'category': 'men\'s clothing'
       },
       {
         'name': 'Women Clothing',
         'image': 'assets/images/categories/womclothe.png',
+        'category': 'women\'s clothing'
       },
     ];
 
@@ -65,7 +70,13 @@ class CategoriesHome extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    // TODO: Rediregir a la pagina de la categoria segun el [index]
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductsByCategory(
+                          category: category['category']!,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ],
