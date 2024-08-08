@@ -1,4 +1,4 @@
-import 'package:fake_store_app/presentation/providers/product_list_provider.dart';
+import 'package:fake_store_app/presentation/providers/shop_page_products/product_list_provider.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/filter_buttons/filter_buttons_menu.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card_2_col.dart';
 import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card_3_col.dart';
