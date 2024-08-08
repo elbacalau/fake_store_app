@@ -1,5 +1,5 @@
 import 'package:fake_store_app/domain/entities/product.dart';
-import 'package:fake_store_app/presentation/providers/product_list_provider.dart';
+import 'package:fake_store_app/presentation/providers/shop_page_products/product_list_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
