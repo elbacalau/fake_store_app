@@ -1,5 +1,6 @@
 import 'package:fake_store_app/domain/entities/product.dart';
 import 'package:fake_store_app/presentation/providers/products_category/products_category_provider.dart';
+import 'package:fake_store_app/presentation/screens/shop_page/products_card/products_card_2_col.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,9 +28,11 @@ class _ProductListCartCategoryState extends State<ProductListCartCategory> {
         Provider.of<ProductsCategoryProvider>(context, listen: false);
 
     await listProducts.fetchProdByCategory(widget.category);
-    setState(() {
-      isDataLoaded = true;
-    });
+    setState(
+      () {
+        isDataLoaded = true;
+      },
+    );
   }
 
   @override
@@ -37,21 +40,6 @@ class _ProductListCartCategoryState extends State<ProductListCartCategory> {
     final listProducts = context.watch<ProductsCategoryProvider>();
     final List<Product> products = listProducts.productsByCategory;
 
-    return isDataLoaded
-        ? ListView.builder(
-            itemCount: products.length,
-            itemBuilder: (context, index) {
-              final product = products[index];
-              return Card(
-                child: ListTile(
-                  title: Text(product.title),
-                  subtitle: Text('\$${product.price}'),
-                ),
-              );
-            },
-          )
-        : const Center(
-            child: CircularProgressIndicator(),
-          );
+    return ProductCardGD(crossSize: 2, products: products);
   }
 }
