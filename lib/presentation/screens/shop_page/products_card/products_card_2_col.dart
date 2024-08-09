@@ -25,6 +25,22 @@ class ProductsCard2Col extends StatelessWidget {
       );
     }
 
+    return ProductCardGD(crossSize: crossSize, products: products);
+  }
+}
+
+class ProductCardGD extends StatelessWidget {
+  const ProductCardGD({
+    super.key,
+    required this.crossSize,
+    required this.products,
+  });
+
+  final int crossSize;
+  final List<Product> products;
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
       child: GridView.builder(
